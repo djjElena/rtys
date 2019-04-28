@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>关于我们</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/animate.min.css"/>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/headfoot.css">
+    <link rel="stylesheet" href="css/swiper.min.css"/>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/second.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/swiper-3.4.2.min.js"></script>
+    <script src="js/swiper.animate1.0.2.min.js"></script>
+</head>
+<body>
+<!--头部-->
+<div class="heads">
+    <script>
+        $(".heads").load("head.html");
+    </script>
+</div>
+<!--内容-->
+<div class="gywm">
+    <ul>
+        <li>
+            <img src="images/second/gywm1.jpg" alt=""/>
+            <div swiper-animate-effect="fadeInUpBig" swiper-animate-duration="0.5s">
+                <h1>北京润途影视传媒有限公司</h1>
+                <p>
+                    北京润途影视传媒有限公司是一家专注于企业宣传片、商业微电影、
+                    TVC广告、FLASH动画，3D/4D动画等专业综合性影视传媒机构，并致
+                    力于打造影视文化传播第一平台
+                </p>
+            </div>
+        </li>
+        <li class="detail">
+            <img src="images/second/gywm2.jpg" alt=""/>
+            <div class="gywm-detail" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="0.5s">
+                <h1>业务范围</h1>
+                <h2>
+                    影视策划、企业宣传片<br>商业微电影、TVC广告
+                </h2>
+                <p>您的期待将由我们的实力回应</p>
+            </div>
+        </li>
+        <li class="detail">
+            <img src="images/second/gywm3.jpg" alt=""/>
+            <div class="gywm-detail" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="0.5s">
+                <h1>多年的积累</h1>
+                <h2>专业的团队、丰富的经验<br>坚实的项目合作伙伴</h2>
+                <p>我们注重的是品质和实力</p>
+            </div>
+        </li>
+        <li class="detail">
+            <img src="images/second/gywm4.jpg" alt=""/>
+            <div class="gywm-detail" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="0.5s">
+                <h1>企业精神</h1>
+                <h2>追求极致、匠心打造<br>对于艺术的追求我们全情投入</h2>
+                <p>成败在于细节,品质始于创新</p>
+            </div>
+        </li>
+    </ul>
+</div>
+<!--底部-->
+<div class="foots">
+    <script>
+        $(".foots").load("foot.html");
+    </script>
+</div>
+<script>
+    $(function(){
+        var banner = new Swiper('#banner',{
+            onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+                swiperAnimateCache(swiper); //隐藏动画元素
+                swiperAnimate(swiper); //初始化完成开始动画
+            },
+            onSlideChangeEnd: function(swiper){
+                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+            },
+            autoplay: 5000,
+            speed:1000,
+            //effect : "fade",
+            fade: {
+                crossFade: true
+            },
+            loop: true,
+            lazyLoading: true,
+            paginationClickable: true
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>案例展示-视频</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/animate.min.css"/>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/headfoot.css">
+    <link rel="stylesheet" href="css/swiper.min.css"/>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/second.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/swiper-3.4.2.min.js"></script>
+    <script src="js/swiper.animate1.0.2.min.js"></script>
+</head>
+<body>
+<!--头部-->
+<div class="heads">
+    <script>
+        $(".heads").load("head.html");
+    </script>
+</div>
+<!--轮播-->
+<div  id="banner">
+    <img src="images/second/case-video.jpg" class="im_pc" alt="">
+    <img src="images/second/case-video.jpg" class="im_mo" alt="">
+</div>
+<!--内容-->
+<div>
+    <div class="main-md case case-video">
+        <div class="zb zb-video">
+            <video src="res/bbb.mp4" controls="controls"></video>
+        </div>
+        <div class="yb yb-wz">
+            <div class="yb-top">
+                <div>
+                    <a href="#">案例展示<span class="iconfont icon-gengduoxiao"></span></a>
+                </div>
+                <div>
+                    <p><a href="#">项目名称：活动策划案例1</a></p>
+                    <p><a href="#">项目类型：活动策划</a></p>
+                    <p><a href="#">项目完成时间：2018年10月24日</a></p>
+                    <p>
+                        <a href="#">项目表达主旨：此项目是给某公司策划年会活动,主要展示企业蓬勃动力，紧跟时尚潮流的主旨。
+                            现场的氛围十分热烈，获得了此企业的一直好评！</a>
+                    </p>
+                </div>
+            </div>
+            <div class="yb-bottom">
+                <div>
+                    <a href="#">案例推荐<span class="iconfont icon-gengduoxiao"></span></a>
+                </div>
+                <div class="case-tj">
+                    <div>
+                        <a href="#"><img src="images/second/case1.jpg" alt=""/></a>
+                    </div>
+                    <div>
+                        <p><a href="#">企业宣传片案例2</a></p>
+                        <p><a href="#">项目类型: 企业宣传片</a></p>
+                    </div>
+                </div>
+                <div class="case-tj video-second">
+                    <div>
+                        <a href="#"><img src="images/second/case2.jpg" alt=""/></a>
+                    </div>
+                    <div>
+                        <p><a href="#">企业宣传片案例3</a></p>
+                        <p><a href="#">项目类型: 企业宣传片</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<div class="foots">
+    <script>
+        $(".foots").load("foot.html");
+    </script>
+</div>
+<script>
+    $(function(){
+        var li_length = $('.tm-t ul li').length;
+        var li_width = $('.tm-t ul li').outerWidth(true);
+        var i=0;
+        var px=0;
+        $('.tm-t ul').width(li_width*li_length);
+
+        //1024屏以上
+        if ($(window).width() > 1024) {
+            /*左移动按钮*/
+            $('.g-lf').click(function(){
+                if(i<=0){i=0}else{
+                    i--;
+                }
+                px=-(li_width*i);
+                d();
+                var xnumber=$('.tm-t ul li.active').index()-1;
+                if(xnumber>=0){
+                    $('.tm-t ul li.active').removeClass('active');
+                    $('.tm-t ul').children().eq(xnumber).addClass('active');
+                }
+                /*底部跟随的轮播*/
+                $('.tm-b li.active').removeClass('active');
+                $('.tm-b ul').children().eq(xnumber).addClass('active');
+            });
+            /*右移动按钮*/
+            $('.g-rt').click(function(){
+                if(i<li_length-4){
+                    i++;
+                }else{i=li_length-4}
+                px=-(li_width*i);
+                d();
+                var xnumber=$('.tm-t ul li.active').index()+1;
+                if(xnumber<4){
+                    $('.tm-t ul li.active').removeClass('active');
+                    $('.tm-t ul').children().eq(xnumber).addClass('active');
+                    /*底部跟随的轮播*/
+                    $('.tm-b li.active').removeClass('active');
+                    $('.tm-b ul').children().eq(xnumber).addClass('active');
+                }
+                /*console.log(xnumber);*/
+            });
+        }else{
+            /*左移动按钮*/
+            $('.g-lf').click(function(){
+                if(i<=0){i=0}else{
+                    i--;
+                }
+                px=-(li_width*i);
+                d();
+                var xnumber=$('.tm-t ul li.active').index()-1;
+                if(xnumber>=0){
+                    $('.tm-t ul li.active').removeClass('active');
+                    $('.tm-t ul').children().eq(xnumber).addClass('active');
+                }
+                /*底部跟随的轮播*/
+                $('.tm-b li.active').removeClass('active');
+                $('.tm-b ul').children().eq(xnumber).addClass('active');
+            });
+            /*右移动按钮*/
+            $('.g-rt').click(function(){
+                if(i<li_length-3){
+                    i++;
+                }else{i=li_length-3}
+                px=-(li_width*i);
+                d();
+                var xnumber=$('.tm-t ul li.active').index()+1;
+                if(xnumber<4){
+                    $('.tm-t ul li.active').removeClass('active');
+                    $('.tm-t ul').children().eq(xnumber).addClass('active');
+                    /*底部跟随的轮播*/
+                    $('.tm-b li.active').removeClass('active');
+                    $('.tm-b ul').children().eq(xnumber).addClass('active');
+                }
+                /*console.log(xnumber);*/
+            });
+
+        }
+
+
+        $('.tm-t ul li a').on('click',function(){
+            var xnumber=$(this).parent().index();
+            if($(this).parent().attr('class')!='active'){
+                $(this).parent().addClass('active')
+                        .siblings().removeClass('active');
+                /*console.log(xnumber);*/
+                /*底部跟随的轮播*/
+                $('.tm-b li.active').removeClass('active');
+                $('.tm-b ul').children().eq(xnumber).addClass('active');
+            }
+
+        });
+
+        function d(){
+            $('.tm-t ul').animate({'left':px},200);
+        }
+    })
+</script>
+</body>
+</html>
